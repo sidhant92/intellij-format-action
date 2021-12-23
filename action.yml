@@ -1,0 +1,47 @@
+---
+name: IntelliJ Format Checker
+description: |
+  Runs the IntelliJ formatter on a project to apply IDE style rules. Useful for enforcing style rules.
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+    default: '${{ github.token }}'
+  file_mask:
+    description: |
+      Pattern for files to include. Supports glob-style wildcards. Multiple patterns can be separated by commas.
+    required: false
+    default: '*'
+  path:
+    description: |
+      Path to project directory. The formatter is executed recursively from here. Must be relative to the workspace.
+    required: false
+    default: '.'
+  fail_on_changes:
+    description: If true, the action fails if any file changed.
+    required: false
+    default: 'false'
+  reporter:
+    description: 'Reporter of reviewdog command [github-pr-check,github-pr-review]'
+    required: false
+    default: 'github-pr-review'
+  filter_mode:
+    description: |
+      Filtering for the reviewdog command [added,diff_context,file,nofilter].
+      Default is `added`.
+    required: false
+    default: 'added'
+  tool_name:
+    description: 'Tool name to use for reviewdog reporter'
+    required: false
+    default: 'diff'
+  intellij_version:
+    description: IntelliJ version to use
+    required: false
+    default: '2021.1.2'
+outputs:
+  files-changed:
+    description: Zero if none changed, greater if at least one file changed.
+runs:
+  using: docker
+  image: Dockerfile
