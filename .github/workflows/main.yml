@@ -1,0 +1,19 @@
+name: IntelliJ Formatting ReviewDog
+
+on: pull_request
+
+jobs:
+  intelliJ:
+    runs-on: ubuntu-latest
+    name: IntelliJ
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check IntelliJ Formatting
+        uses: sidhant92/intellij-format-action@master
+        with:
+          tool_name: 'IntelliJ Diff'
+          github_token: ${{ secrets.github_token }}
+          fail_on_changes: true
+          path: '.'
+          file_mask: '*.java'
