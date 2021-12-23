@@ -2,6 +2,9 @@
 name: IntelliJ Format Checker
 description: |
   Runs the IntelliJ formatter on a project to apply IDE style rules. Useful for enforcing style rules.
+branding:
+  icon: 'code'
+  color: 'red'
 inputs:
   github_token:
     description: 'GITHUB_TOKEN.'
