@@ -1,8 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Sidhant Aggarwal <sidhant92@hotmail.com>
 
-RUN echo ${INPUT_INTELLIJ_VERSION}
-
 RUN apt-get update \
     && apt-get install -y bash git wget \
     && apt-get clean \

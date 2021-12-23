@@ -35,10 +35,6 @@ inputs:
     description: 'Tool name to use for reviewdog reporter'
     required: false
     default: 'diff'
-  intellij_version:
-    description: IntelliJ version to use
-    required: false
-    default: '2021.1.2'
 outputs:
   files-changed:
     description: Zero if none changed, greater if at least one file changed.
