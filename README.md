@@ -72,7 +72,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Check IntelliJ Formatting
-        uses: sidhant92/intellij-format-action@main
+        uses: sidhant92/intellij-format-action@v1
         with:
           tool_name: 'IntelliJ Diff'
           github_token: ${{ secrets.github_token }}
